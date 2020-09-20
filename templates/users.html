@@ -1,0 +1,42 @@
+{%extends 'base.html'%}
+{%block content%}
+
+
+<div>
+    <div class=" col-md-10 offset-sm-1 ">
+        <br>
+        <h1 style="text-align: center; font-family:Georgia, 'Times New Roman', Times, serif; color:white">User
+            Information</h1>
+        <br>
+        <table class="w-100">
+            <thead>
+                <tr style="font-size: 22px">
+                    <th>ID</th>
+                    <th>NAME</th>
+                    <th>EMAIL</th>
+                    <th>CREDIT</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for p in ppl%}
+                <tr style=" font-weight:bold; ">
+                    <td>{{p.id}}</td>
+                    <td><a href="/users/details/{{p.id}}" style="text-decoration: none; color:white">{{p.Name}}</a></td>
+                    <td>{{p.Email}}</td>
+                    <td>{{p.Credit}}</td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+
+
+
+    </div>
+
+</div>
+<br>
+
+<div class="col-md-12 text-center">
+    <a class='btn btn-warning mx-2' style="padding: 6px 40px; font-weight: bold" href="{% url 'home' %}">Home</a>
+</div>
+{%endblock%}

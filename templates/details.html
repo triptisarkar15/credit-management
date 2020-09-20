@@ -1,0 +1,57 @@
+{%extends 'base.html'%}
+
+
+{%block content%}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="row">
+    <div class="col-md-6 offset-sm-3 text-center">
+        <div class="card">
+
+            <div class="card-body" style="color: gray">
+                <h3 class="card-title" style="color: black;text-transform: uppercase">{{user.Name}}</h3>
+                <h5 class="" style="color: gray">Balance Amount:{{user.Credit}}</h5>
+                <table class="mx-auto">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>DEPOSITED BY</th>
+                            <th>AMOUNT</th>
+                            <th>STATUS</th>
+                            <hr>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for p in transaction%}
+                        <tr>
+                            <td style="color: gray">{{p.id}}</td>
+                            <td style="color: gray">{{p.WhoUsers}}</td>
+                            <td style="color: gray">{{p.Amount}}</td>
+                            <td style="color: gray">{{p.Status}}</td>
+                        </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<br>
+<br>
+<div class="row">
+    <div class="col-md-12 text-center">
+        <a class='btn btn-warning mx-2' href="/transactions/{{user.id}}" style="font-weight: bold">Make Transaction</a>
+        <a class='btn btn-warning mx-2' style="padding: 6px 40px; font-weight: bold" href="{% url 'users' %}">Back</a>
+    </div>
+</div>
+
+{%endblock%}
+
+<!-- style="border-radius:10px;background-color:rgb(27, 172, 39); margin:550px;color:white; padding:5px 10px; text-decoration:none; font-size:30px" -->

@@ -1,0 +1,40 @@
+{%extends 'base.html'%}
+
+
+{%block content%}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="row">
+    <div class="col-md-6 offset-sm-3 text-center">
+        <div class="card">
+            <div class="card-body" style="color: gray">
+                <h3 class="card-title" style="color: black;text-transform: uppercase">{{user.Name}}</h3>
+                <h5 class="" style="color: gray">Balance Amount: {{user.Credit}}</h5>
+                <form class='px-5' method="POST">
+                    {% csrf_token%}
+
+                    <select class="form-control form-control-md" style="border-radius: 5px;" name='users' required>
+                        {% for j in pple%}
+                        <option>
+                            {{j.Name}}
+                        </option>
+                        {%endfor%}
+                    </select>
+                    <br>
+
+                    <input class='form-control' style="border-radius: 5px;" placeholder="Amount" type="number"
+                        name="Amount" id="Amount" required />
+                    <br>
+                    <button type="submit"
+                        style="border-radius:5px;background-color:rgb(27, 172, 39); color:white; padding:2px 11px; text-decoration:none; font-size:20px">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}
